@@ -1,0 +1,20 @@
+{
+  // required
+  "name": "Dashy",
+  "manifest_version": 2,
+  "version": "0.1",
+  //recommended
+  "description": "Personal Dashboard on new tab",
+  //optional
+  "author": "tommy durand",
+  "background": {
+    "scripts": ["js/background.js"]
+  },
+  "chrome_url_overrides": {
+    "newtab": "index.html"
+  },
+  "permissions": [
+    "tabs",
+    "storage"
+  ]
+}
