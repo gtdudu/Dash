@@ -4,10 +4,13 @@ available on new tab creation, work in progress.
 
 ## install
 
-git clone
-go to chrome://extensions/
-click on load unpack extension
 
+
+* git clone
+* go to chrome://extensions/
+* click on load unpack extension (if it's not there be sure to have developper mode checked) 
+* select what you just cloned
+* try to enjoy
 
 ## roadMap
 
