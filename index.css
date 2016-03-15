@@ -1,8 +1,3 @@
-/*#191919
-#red
-#FFF056
-#FFFFFF*/
-
 body {
   height: 100%;
   width: 100%;
@@ -27,44 +22,9 @@ input[type="text"] {
   background: none;
   color: #fff;
 }
+
 input[type="text"]:focus {
   outline: none;
-}
-
-.fixed-tl {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-}
-
-
-.fixed-br {
-    position: absolute;
-    bottom: 20px;
-    right: 20px;
-}
-
-.fixed-box-br {
-  position: absolute;
-  opacity: 0;
-  color: #fff;
-  bottom: 40px;
-  right: 0px;
-  width: 300px;
-  height: 300px;
-  background: #191919;
-}
-
-#clock {
-  color: white;
-  font-size: 6em;
-  font-weight: bold;
-}
-
-#todo-new {
-    position: absolute;
-    bottom: 10px;
-    left: 10px;
 }
 
 .vertical-center {

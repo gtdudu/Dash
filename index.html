@@ -2,23 +2,25 @@
 <html>
     <head>
         <title>Dashy</title>
-        <link rel="stylesheet" href="css/theme.css">
-        <link rel="stylesheet" href="modules/font-awesome-4.5.0/css/font-awesome.css">
-        <!-- Font awesome is required for the little settings icon on the top left -->
-        <!-- <link rel="stylesheet" href="css/vex.css" />
-        <link rel="stylesheet" href="css/vex-theme-top.css"/> -->
+        <link rel="stylesheet" href="index.css">
+        <link rel="stylesheet" href="modules/clock/clock.css">
+        <link rel="stylesheet" href="modules/todo/todo.css">
+        <link rel="stylesheet" href="libs/font-awesome-4.5.0/css/font-awesome.css">
     </head>
-    <body>
-      <div id="todo-list" class="fixed-box-br">
-        <input id="todo-new" type="text" placeholder=" New Task!" />
-      </div>
-      <div id="todo-show" class="fixed-br">To Do</div>
+    <body ng-app="dashy">
+
       <div class="vertical-center">
-        <div id="clock"></div>
+        <div ng-include="'modules/clock/clock.html'"></div>
       </div>
-      <script src="js/main.js"></script>
-    <!-- <script src="js/jquery.min.js"></script>
-        <script src="js/vex.combined.min.js"></script>
-        <script src="Chart.js" ></script> -->
+      <div ng-include="'modules/todo/todo.html'"></div>
+
+      <script type="text/javascript" src="libs/jquery/dist/jquery.min.js"></script>
+      <script type="text/javascript" src="libs/angular/angular.min.js"></script>
+
+      <script type="text/javascript" src="modules/app.js"></script>
+      <script type="text/javascript" src="modules/clock/clock.js"></script>
+      <script type="text/javascript" src="modules/todo/todo.js"></script>
+      <script type="text/javascript" src="modules/todo/todo-storage.js"></script>
+
     </body>
 </html>

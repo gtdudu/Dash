@@ -8,13 +8,12 @@
   //optional
   "author": "tommy durand",
   "background": {
-    "scripts": ["js/background.js"]
+    "scripts": ["background.js"]
   },
   "chrome_url_overrides": {
     "newtab": "index.html"
   },
   "permissions": [
-    "tabs",
     "storage"
   ]
 }
