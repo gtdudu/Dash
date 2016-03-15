@@ -3,4 +3,5 @@ Simple chrome extension, work in progress
 
 # roadMap
 
-* add todo list
+* angularjs
+* todo list
