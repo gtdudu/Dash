@@ -16,9 +16,12 @@ myApp.controller("todoCtrl", ['$scope', 'todoFactory',
     }
 
     $scope.toggleCompleted = function(todo) {
-      todoFactory.sync().then(function(){
+      todoFactory.toggleCompleted(todo).then(function(){
         $scope.todoList = todoFactory.data;
-      });;
+
+      })
+      // todoFactory.sync().then(function(){
+      // });;
     }
 
     $scope.remove = function(todo) {

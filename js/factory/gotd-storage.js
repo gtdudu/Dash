@@ -1,21 +1,27 @@
 myApp.factory('gotdFactory', function($q) {
 
   var _gotdFactory = {
-    data: null
+    data: []
   };
 
   _gotdFactory.sync = function() {
-      var deferred = $q.defer();
-      // should try to stringify object, maybe that will fix the completed updated that's not properly working for now
-      chrome.storage.sync.set({gotd: this.data}, function() {
+    var deferred = $q.defer();
+      chrome.storage.sync.set({gotd: JSON.stringify(this.data)}, function() {
           if (chrome.runtime.lastError) {
             deferred.reject('chrome.runtime error')
           } else {
             deferred.resolve('Successfully synced your main goal with chrome storage')
           }
       });
-
       return deferred.promise;
+  }
+
+  _gotdFactory.toggleComplete = function(gotd) {
+    let save = gotd;
+    gotd.completed = !gotd.completed;
+    this.data.splice(this.data.indexOf(gotd), 1);
+    this.data.push(save);
+    return this.sync();
   }
 
   _gotdFactory.find = function() {
@@ -23,11 +29,11 @@ myApp.factory('gotdFactory', function($q) {
 
       chrome.storage.sync.get('gotd', function(obj) {
         if (chrome.runtime.lastError) {
-          deferred.reject('chrome.runtime error')
+          deferred.reject('chrome.runtime error');
         }
         if (obj.gotd != null) {
-            _gotdFactory.data = obj.gotd;
-            deferred.resolve('Successfully restored your main goal from chrome storage')
+            _gotdFactory.data = JSON.parse(obj.gotd);
+            deferred.resolve('Successfully restored your main goal from chrome storage');
         }
     });
 
@@ -40,12 +46,13 @@ myApp.factory('gotdFactory', function($q) {
         completed: false,
         createdAt: new Date()
     };
-    this.data = gotd;
+    this.data = [];
+    this.data.push(gotd);
     return this.sync();
   };
 
   _gotdFactory.remove = function(gotd) {
-    this.data = null;
+    this.data = [];
     return this.sync();
   };
 

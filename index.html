@@ -22,12 +22,10 @@
             <div ng-if="mainGoal">
               <h2>Today</h2>
               <div class="gotd-item">
-                <input class="check-goal" type='checkbox' ng-model='mainGoal.completed' ng-click='toggleCompleted()'/>
+                <input class="check-goal" type='checkbox' ng-model='mainGoal.completed' ng-click='toggleCompleted(mainGoal)'/>
                 <span ng-class='{completed: mainGoal.completed}'>{{mainGoal.content}}</span>
                 <a class='del-goal' ng-click='remove(mainGoal)'>x</a>
               </div>
-
-              <!-- <h1><span class="del-goal">Clear</span>{{mainGoal.content}}</h1> -->
             </div>
             <div ng-if="!mainGoal">
               <form id="gotd-form" ng-submit="addGoal()">
@@ -49,7 +47,7 @@
             <div id="todo-list">
               <div ng-repeat="todo in todoList track by todo.id| orderBy: todo.createdAt">
                 <div class="todo-item">
-                  <input type='checkbox' ng-model='todo.completed' ng-click='toggleCompleted()'/>
+                  <input type='checkbox' ng-model='todo.completed' ng-click='toggleCompleted(todo)'/>
                   <span ng-class='{completed: todo.completed}'>{{todo.content}}</span>
                   <a class='pull-right circle' ng-click='remove(todo)'><span class="del">x</span></a>
                 </div>

@@ -4,31 +4,24 @@ myApp.factory('todoFactory', function($q) {
     data: []
   };
 
-  // chrome.storage.onChanged.addListener(function(changes, namespace) {
-  //   for (key in changes) {
-  //     var storageChange = changes[key];
-  //     console.log('Storage key "%s" in namespace "%s" changed. ' +
-  //                 'Old value was "%s", new value is "%s".',
-  //                 key,
-  //                 namespace,
-  //                 storageChange.oldValue,
-  //                 storageChange.newValue);
-  //   }
-  // });
-  //
-
   _todoFactory.sync = function() {
       var deferred = $q.defer();
-      // should try to stringify object, maybe that will fix the completed updated that's not properly working for now
-      chrome.storage.sync.set({todos: this.data}, function() {
+      chrome.storage.sync.set({todos: JSON.stringify(this.data)}, function() {
           if (chrome.runtime.lastError) {
             deferred.reject('chrome.runtime error')
           } else {
             deferred.resolve('Successfully synced your todos with chrome storage')
           }
       });
-
       return deferred.promise;
+  }
+
+  _todoFactory.toggleCompleted = function(todo){
+    let save = todo;
+    todo.completed = !todo.completed;
+    this.data.splice(this.data.indexOf(todo), 1);
+    this.data.push(save);
+    return this.sync();
   }
 
   _todoFactory.findAll = function() {
@@ -39,7 +32,7 @@ myApp.factory('todoFactory', function($q) {
           deferred.reject('chrome.runtime error')
         }
         if (obj.todos != null) {
-            _todoFactory.data = obj.todos;
+            _todoFactory.data = JSON.parse(obj.todos);
             deferred.resolve('Successfully synced your todos with chrome storage')
         }
     });

@@ -1,6 +1,9 @@
 ## Dash
+
+Dash is simplistic clone of [momentum dashboard](https://chrome.google.com/webstore/detail/momentum/laookkfknpbbblfpciffpaejjkokdgca)
+
 The goal is to get a basic understanding of the chrome extension api by designing a simple dashboard
-available on new tab creation, work in progress ( inspiration: momentum dashboard :D ).
+available on new tab creation, work in progress.
 
 ## install
 
@@ -18,11 +21,7 @@ available on new tab creation, work in progress ( inspiration: momentum dashboar
 - [x] create todo list
 - [x] persist todos in chrome.storage
 - [x] add goal of the day
+- [x] persist goal of the day in chrome.storage
 - [ ] add quote of the day
 - [ ] add weather display based on location
 - [ ] add simple rss feed manager
-
-## issues
-
-Looks like toggleComplete is not working properly.
-chrome.storage.onChanged.addListener... shows that you need to toggle two checkbox in a row for the first one to be correctly updated despite the fact that  correct values are sent to the factory.. For now i'm storing objects but maybe i should stringify all that. 
