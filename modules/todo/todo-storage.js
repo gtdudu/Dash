@@ -13,6 +13,17 @@ myApp.factory('storageFactory', function($q) {
   // }, function(update) {
   //   alert('Got notification: ' + update);
   // });
+  chrome.storage.onChanged.addListener(function(changes, namespace) {
+    for (key in changes) {
+      var storageChange = changes[key];
+      console.log('Storage key "%s" in namespace "%s" changed. ' +
+                  'Old value was "%s", new value is "%s".',
+                  key,
+                  namespace,
+                  storageChange.oldValue,
+                  storageChange.newValue);
+    }
+  });
 
 
   _storageFactory.sync = function() {

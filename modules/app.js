@@ -1,1 +1,1 @@
-var myApp = angular.module('dashy', []);
+var myApp = angular.module('dash', []);
