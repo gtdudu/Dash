@@ -3,10 +3,12 @@ myApp.controller("todoCtrl", ['$scope', 'storageFactory',
 
     $scope.open = false;
     $scope.formData = {};
-    $scope.storageFactory = storageFactory;
+    $scope.todoList = [];
 
     $scope.init = function() {
-      storageFactory.findAll();
+      storageFactory.findAll().then(function() {
+        $scope.todoList = storageFactory.data;
+      });
     }
 
     $scope.toggle = function() {
@@ -14,22 +16,29 @@ myApp.controller("todoCtrl", ['$scope', 'storageFactory',
     }
 
     $scope.toggleCompleted = function(todo) {
-      storageFactory.sync();
+      storageFactory.sync().then(function(){
+        $scope.todoList = storageFactory.data;
+      });;
     }
 
     $scope.remove = function(todo) {
-      storageFactory.remove(todo)
+      storageFactory.remove(todo).then(function(){
+        $scope.todoList = storageFactory.data;
+      });;
     }
 
     $scope.removeAll = function(todo) {
-      storageFactory.removeAll()
+      storageFactory.removeAll().then(function(){
+        $scope.todoList = storageFactory.data;
+      });
     }
 
     $scope.addTodo = function() {
       if ($scope.formData.title) {
-        storageFactory.add($scope.formData.title);
-        $scope.formData.title = "";
-        console.log(storageFactory);
+        storageFactory.add($scope.formData.title).then(function(){
+          $scope.todoList = storageFactory.data;
+          $scope.formData.title = "";
+        });;
       }
     }
   }

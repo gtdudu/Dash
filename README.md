@@ -1,6 +1,6 @@
 ## Dashy
 The goal is to get a basic understanding of the chrome extension api by designing a simple dashboard
-available on new tab creation, work in progress.
+available on new tab creation, work in progress ( inspiration: momentum dashboard :D ).
 
 ## install
 
@@ -8,7 +8,7 @@ available on new tab creation, work in progress.
 
 * git clone
 * go to chrome://extensions/
-* click on load unpack extension (if it's not there be sure to have developper mode checked) 
+* click on load unpack extension (if it's not there be sure to have developper mode checked)
 * select what you just cloned
 * try to enjoy
 

@@ -6,7 +6,7 @@ body {
   background: url('/img/bg.jpeg') center;
   background-size: cover;
   font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
-  font-size: 100%;
+  font-size: 16px;
   max-height: 100%;
   color: #fff;
 }
@@ -47,4 +47,8 @@ input[type="text"]:focus {
   -ms-flex-pack : center;
   -webkit-justify-content : center;
   justify-content : center;
+}
+
+.pull-right {
+  float: right;
 }
