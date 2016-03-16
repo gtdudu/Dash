@@ -7,10 +7,10 @@ myApp.controller("clockCtrl", ['$scope', '$timeout',
       var today = new Date();
       var h = today.getHours();
       var m = checkTime(today.getMinutes());
-      var s = checkTime(today.getSeconds());
+      // var s = checkTime(today.getSeconds());
+      // + ":" + s;
 
-      $scope.time = h + ":" + m  + ":" + s;
-
+      $scope.time = h + ":" + m
       $timeout(function () {
             $scope.setClock()
         }, 500);

@@ -1,0 +1,47 @@
+#gotd-form{
+  margin-top: 20px;
+}
+
+#gotd-form input {
+  min-width: 90vw;
+  font-size: 28px;
+  text-align: center;
+}
+
+#gotd-form::-webkit-input-placeholder {
+   text-align: center;
+}
+
+#gotd-form:-moz-placeholder { /* Firefox 18- */
+   text-align: center;
+}
+
+#gotd-form::-moz-placeholder {  /* Firefox 19+ */
+   text-align: center;
+}
+
+#gotd-form:-ms-input-placeholder {
+   text-align: center;
+}
+
+.check-goal {
+  visibility: hidden;
+}
+
+.del-goal {
+  padding: 3px;
+  color: black;
+  cursor: pointer;
+  font-size: 12px;
+  text-align: center;
+  -webkit-transition: all .2s ease-in;
+  visibility: hidden;
+}
+
+.gotd-item:hover .del-goal, .gotd-item:hover .check-goal {
+  visibility: visible;
+}
+
+.gotd-item span {
+  font-size: 30px;
+}

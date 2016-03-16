@@ -1,0 +1,41 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
+  font-size: 16px;
+  background: #191919;
+  color: #fff;
+}
+
+.text-center {
+  text-align: center;
+}
+
+input[type="text"] {
+  font-size: 16px;
+  box-shadow: none;
+  border: none;
+  background: none;
+  color: #fff;
+}
+
+input[type="text"]:focus {
+  outline: none;
+}
+
+.vertical-center {
+  margin-top: 50vh; /* poussé de la moitié de hauteur de viewport */
+  transform: translateY(-50%); /* tiré de la moitié de sa propre hauteur */
+}
+
+.pull-right {
+  float: right;
+}
+
+.wrapper {
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  background: url('/public/img/bg.jpeg') center;
+  background-size: cover;
+}
