@@ -42,10 +42,10 @@
           </div>
           <div ng-if="open" id="todo-box">
             <div id="todo-header">
-              <span>All todo: {{todoList.length}}</span><a id='clear-all' class="pull-right" ng-click='removeAll()'><span>Clear all</span></a>
+              <span>Completed: {{over}} / {{todoList.length}}</span><a id='clear-all' class="pull-right" ng-click='removeAll()'><span>Clear all</span></a>
             </div>
             <div id="todo-list">
-              <div ng-repeat="todo in todoList track by todo.id| orderBy: todo.createdAt">
+              <div ng-repeat="todo in todoList track by todo.id | orderBy:'createdAt'">
                 <div class="todo-item">
                   <input type='checkbox' ng-model='todo.completed' ng-click='toggleCompleted(todo)'/>
                   <span ng-class='{completed: todo.completed}'>{{todo.content}}</span>
