@@ -30,13 +30,20 @@
 
 .del-goal {
   padding: 3px;
-  color: black;
+  color: #ddd;
   cursor: pointer;
   font-size: 12px;
   text-align: center;
   -webkit-transition: all .2s ease-in;
   visibility: hidden;
 }
+
+.del-goal:hover{
+  width: 10px;
+  height: 8px;
+  border: 1px solid #999;
+}
+
 
 .gotd-item:hover .del-goal, .gotd-item:hover .check-goal {
   visibility: visible;
